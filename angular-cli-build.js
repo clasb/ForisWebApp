@@ -12,13 +12,17 @@ module.exports = function(defaults) {
       'reflect-metadata/*.js',
       'rxjs/**/*.js',
       '@angular/**/*.js',
+      'angular2-jwt/**/*.js',
       'moment/moment.js',
       '@angular2-material/**/*.js',
       'ng2-bootstrap/**/*.js',
       'bootstrap/**/*.css',
       'bootstrap/**/*.js',
       'font-awesome/**/*.css',
-      'font-awesome/fonts/*.*'
+      'font-awesome/fonts/*.*',
+      'auth0-lock/**/*.js',
+      'auth0-lock/**/*.css',
+      'auth0-js/**/*.js'
     ]
   });
 };

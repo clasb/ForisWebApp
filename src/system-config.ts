@@ -4,7 +4,9 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'moment': 'vendor/moment/moment.js',
-  '@angular2-material': 'vendor/@angular2-material'
+  '@angular2-material': 'vendor/@angular2-material',
+  'angular2-jwt': 'vendor/angular2-jwt',
+  'auth0-js': 'vendor/auth0-js'
 };
 
 /** User packages configuration. */
@@ -43,6 +45,15 @@ const packages: any = {
     format: 'cjs',
     defaultExtension: 'js',
     main: 'card.js'
+  },
+  'angular2-jwt': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: 'angular2-jwt.js'
+  },
+  'auth0-js': {
+    defaultExtension: 'js',
+    main: 'index.js'
   }
 
 };
@@ -60,6 +71,7 @@ const barrels: string[] = [
   '@angular/router',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
+  '@angular/router-deprecated',
 
   // Thirdparty barrels.
   'rxjs',
@@ -67,6 +79,15 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/+login',
+  'app/+home',
+  'app/user',
+  'app/+loginform',
+  'app/+registerform',
+  'app/+loginregister',
+  'app/menu',
+  'app/+trails',
+  'app/+profile',
   /** @cli-barrel */
 ];
 

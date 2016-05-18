@@ -28,6 +28,7 @@
     "@angular2-material/list": "^2.0.0-alpha.4",
     "@angular2-material/sidenav": "^2.0.0-alpha.4",
     "@angular2-material/toolbar": "^2.0.0-alpha.4",
+    "angular2-google-maps": "^0.10.0",
     "angular2-jwt": "^0.1.15",
     "auth0-lock": "^9.2.1",
     "bootstrap": "^3.3.6",

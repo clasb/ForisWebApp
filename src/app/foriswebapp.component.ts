@@ -37,7 +37,6 @@ export class ForiswebappAppComponent {
 	constructor(private router: Router, private auth: AuthService) { }
 	ngOnInit() {
 		if (this.auth.loggedIn()) {
-			this.router.navigate(['/home']);
 		} else {
 			this.auth.login();
 		}

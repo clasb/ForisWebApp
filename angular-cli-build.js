@@ -22,7 +22,8 @@ module.exports = function(defaults) {
       'font-awesome/fonts/*.*',
       'auth0-lock/**/*.js',
       'auth0-lock/**/*.css',
-      'auth0-js/**/*.js'
+      'auth0-js/**/*.js',
+      'angular2-google-maps/**/*.js'
     ]
   });
 };

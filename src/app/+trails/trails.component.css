@@ -1,0 +1,23 @@
+.full-height {
+	height: 90vh;
+}
+
+.quarter-height {
+	height: 25vh;
+}
+
+.half-height {
+	height: 65vh;
+}
+
+@media screen and (min-width: 769px) {
+    .mobile-toggle {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .desktop-toggle {
+        display: none;
+    }
+}

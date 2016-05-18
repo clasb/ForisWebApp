@@ -6,7 +6,8 @@ var map = {
     'moment': 'vendor/moment/moment.js',
     '@angular2-material': 'vendor/@angular2-material',
     'angular2-jwt': 'vendor/angular2-jwt',
-    'auth0-js': 'vendor/auth0-js'
+    'auth0-js': 'vendor/auth0-js',
+    'angular2-google-maps': 'vendor/angular2-google-maps'
 };
 /** User packages configuration. */
 var packages = {
@@ -53,6 +54,9 @@ var packages = {
     'auth0-js': {
         defaultExtension: 'js',
         main: 'index.js'
+    },
+    'angular2-google-maps': {
+        defaultExtension: 'js'
     }
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +87,11 @@ var barrels = [
     'app/menu',
     'app/+trails',
     'app/+profile',
+    'app/map',
+    'app/traillist',
+    'app/trailtab',
+    'app/trail',
+    'app/traildetail',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {

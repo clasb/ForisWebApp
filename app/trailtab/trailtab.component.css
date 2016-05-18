@@ -1,0 +1,18 @@
+.tab {
+	cursor: pointer;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid;
+}
+
+.tab:hover {
+	background-color: #989898;
+}
+
+.name {
+	font-size: 25px;
+}
+
+.description {
+	font-size: 16px;
+}

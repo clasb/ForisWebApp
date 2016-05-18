@@ -6,6 +6,9 @@
                 <button md-icon-button class="desktop-toggle menu-item-2-right" *ngIf="!auth.loggedIn()" (click)="auth.login()">
                     <i class="fa fa-sign-in fa-fw fa-2x" aria-hidden="true"></i>
                 </button>
+                <button md-raised-button class="desktop-toggle" *ngIf="auth.loggedIn()" (click)="router.navigate(['/home'])">
+                    <i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>Home
+                </button>
                 <button md-raised-button class="desktop-toggle" *ngIf="auth.loggedIn()" (click)="router.navigate(['/trails'])">
                     <i class="fa fa-map fa-fw fa-lg" aria-hidden="true"></i>Trails
                 </button>
@@ -22,6 +25,11 @@
             <div class="sidenav-menu-item mobile-toggle" *ngIf="!auth.loggedIn()">
                 <button md-icon-button (click)="auth.login();mobileMenu.close()">
                     <i class="fa fa-sign-in fa-fw fa-2x" aria-hidden="true"></i>Log in
+                </button>
+            </div>
+            <div class="sidenav-menu-item mobile-toggle" *ngIf="auth.loggedIn()">
+                <button md-icon-button (click)="router.navigate(['/home']);mobileMenu.close()">
+                    <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>Home
                 </button>
             </div>
             <div class="sidenav-menu-item mobile-toggle" *ngIf="auth.loggedIn()">

@@ -18,7 +18,7 @@ export class TraillistComponent implements OnInit {
 
 	ngOnInit() {
 		//this.trailService.getAllTrails().then(trails => this.trails = trails);
-		this.trails = this.trailService.getAllTrails();
+		//this.trailService.getAllTrails();
 	}
 
 }

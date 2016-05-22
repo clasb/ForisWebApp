@@ -1,32 +1,39 @@
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Router } from '@angular/router';
-
-declare var Auth0Lock: any;
+import { contentHeaders } from './trail/headers';
+import { Http, Headers } from '@angular/http';
 
 @Injectable()
 export class AuthService {
 
-	constructor(private router: Router) {}
+	constructor(private router: Router, public http: Http) { }
 
-	lock = new Auth0Lock('n7KZAN5t3dIwXuWlaViTLF9ZJ1esnRsI', 'claes.eu.auth0.com');
+	login(username, password) {
+		var client_id = 'n7KZAN5t3dIwXuWlaViTLF9ZJ1esnRsI';
+		var connection = 'Username-Password-Authentication';
+		var grant_type = 'password';
+		var scope = 'openid profile';
 
-	login() {
-		this.lock.show((error: string, profile: Object, id_token: string) => {
-			if (error) {
-				console.log(error);
+		let body = JSON.stringify(
+			{ username, password, client_id, connection, grant_type, scope }
+		);
+		this.http.post('https://claes.eu.auth0.com/oauth/ro', body, { headers: contentHeaders })
+			.subscribe(
+			response => {
+				localStorage.setItem('id_token', response.json().id_token);
+				this.router.navigate(['/home']);
+			},
+			error => {
+				alert(error.text());
+				console.log(error.text());
 			}
-			localStorage.setItem('profile', JSON.stringify(profile));
-			localStorage.setItem('id_token', id_token);
-		});
+			);
 	}
 
 	logout() {
-		// To log out, we just need to remove
-		// the user's profile and token
-		localStorage.removeItem('profile');
 		localStorage.removeItem('id_token');
-		this.router.navigate(['/']);
+		this.router.navigate(['/login']);
 	}
 
 	loggedIn() {

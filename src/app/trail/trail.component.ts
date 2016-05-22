@@ -1,9 +1,14 @@
 export class TrailComponent {
-	id: number;
-	name: string;
-	description: string;
-	start: string;
-	length: string;
-	rating: number;
-	difficulty: number;
+	Id: number;
+	Name: string;
+	Description: string;
+	Length: number;
+	Rating: number;
+	Difficulty: number;
+	Coordinates: Coordinate[];
+}
+
+export class Coordinate {
+	Latitude: number;
+	Longitude: number;
 }

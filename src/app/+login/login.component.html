@@ -1,15 +1,16 @@
-<div class="login jumbotron center-block">
-  <h1>Login</h1>
-  <form role="form" (submit)="login($event, username.value, password.value)">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" #username class="form-control" id="username" placeholder="Username">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" #password class="form-control" id="password" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-    <a href="/signup">Click here to Signup</a>
-</form>
+<div class="content">
+    <div class="login-content">
+        <form role="form" (submit)="login($event, username.value, password.value)">
+            <div class="form-group">
+                <input type="text" #username class="form-control foris-input" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" #password class="form-control foris-input" id="password" placeholder="Password">
+            </div>
+            <div class="foris-btn-group">
+                <button type="submit" md-raised-button class="foris-btn foris-login-btn">Login</button>
+                <button type="button" md-raised-button class="foris-btn foris-register-btn">Register</button>
+            </div>
+        </form>
+    </div>
 </div>

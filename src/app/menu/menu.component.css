@@ -1,7 +1,11 @@
 .menu {
+    margin-bottom: 10px;
     width: 100%;
     height: 60px;
-    background-color: #1f1f1f;
+    border: none;
+    background: url('https://d2mpxrrcad19ou.cloudfront.net/item_images/185356/3850206_fullsize.jpg') no-repeat center center;
+    -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.5);
 }
 
 .sidenav-menu-item {
@@ -29,16 +33,35 @@
     top: 10px;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 867px) {
     .mobile-toggle {
         display: none;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 866px) {
     .desktop-toggle {
         display: none;
     }
+}
+
+.menu-btn {
+    font-size: 22px;
+    height: 60px;
+    background-color: rgba(255,255,255,0.4);
+    color: black;
+}
+
+.menu-btn:hover {
+    background-color: white;
+}
+
+.menu-icon {
+    background-color: rgba(255,255,255,0.4);
+}
+
+.menu-icon:hover {
+    background-color: white;
 }
 
 md-sidenav-layout {
@@ -47,7 +70,7 @@ md-sidenav-layout {
 }
 
 md-sidenav-layout.md-sidenav-closed {
-	display:none;
+    display: none;
 }
 
 md-sidenav {

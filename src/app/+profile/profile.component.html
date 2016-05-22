@@ -1,1 +1,14 @@
 profile
+<div *ngFor="let trail of trails">
+    <div>id: {{trail.Id}}</div>
+    <div>name: {{trail.Name}}</div>
+    <div>description: {{trail.Description}}</div>
+    <div>length: {{trail.Length}}</div>
+    <div>rating: {{trail.Rating}}</div>
+    <div>difficulty: {{trail.Difficulty}}</div>
+    <div *ngFor="let coordinate of trail.Coordinates">
+    	<div>{{coordinate.Latitude}}</div>
+    	<div>{{coordinate.Longitude}}</div>
+    </div>
+</div>
+{{somethingWrong}}

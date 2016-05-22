@@ -14,11 +14,24 @@ import { TrailService } from '../trail.service';
 export class TraillistComponent implements OnInit {
 
 	trails: TrailComponent[];
+	errorMessage: any;
 	constructor(private trailService: TrailService) { }
 
 	ngOnInit() {
 		//this.trailService.getAllTrails().then(trails => this.trails = trails);
 		//this.trailService.getAllTrails();
+		this.trailService.getAllTrails()
+			.subscribe(responseData => {
+				console.log("something");
+				console.log(responseData);
+				this.trails = responseData;
+			},
+			error => {
+				console.log("something wrong");
+				console.log(error);
+				this.errorMessage = <any>error;
+			}
+			);
 	}
 
 }

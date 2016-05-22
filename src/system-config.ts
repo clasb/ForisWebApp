@@ -48,7 +48,8 @@ const packages: any = {
     main: 'card.js'
   },
   'angular2-jwt': {
-    main: 'angular2-jwt.js'
+    defaultExtension: 'js',
+    main: 'angular2-jwt'
   },
   'auth0-js': {
     defaultExtension: 'js',

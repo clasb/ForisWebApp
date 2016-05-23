@@ -14,6 +14,7 @@ import { TrailService } from '../trail.service';
 export class TraildetailComponent implements OnInit, OnDestroy {
 	trail: TrailComponent;
 	subscription: Subscription;
+	errorMessage: string;
 
 	constructor(private trailsLink: TrailslinkService, private trailService: TrailService) { 
 		this.subscription = trailsLink.trailSelected$.subscribe(
@@ -24,7 +25,14 @@ export class TraildetailComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this.trail = this.trailService.getTrail(1);
+		this.trailService.getTrail(1)
+			.subscribe(responseData => {
+				this.trail = responseData;
+			},
+			error => {
+				this.errorMessage = <any>error;
+			}
+			);
 	}
 
 	ngOnDestroy() {

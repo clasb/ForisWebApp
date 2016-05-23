@@ -41,7 +41,7 @@ export class TrailService {
 			.catch(this.handleError);
 	}
 
-	getTrail(id: number) {
+	getTrail(id: number): Observable<TrailComponent> {
 		return this.authHttp.get('http://forisapi.azurewebsites.net/api/trail/1')
 			.map(this.extractData)
 			.catch(this.handleError);

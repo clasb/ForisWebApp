@@ -36,14 +36,15 @@ export class TrailService {
 			response => this.response = response,
 			error => console.log(error)
 			);*/
-		return this.authHttp.get('http://localhost:20922/api/alltrails')
+		return this.authHttp.get('http://forisapi.azurewebsites.net/api/alltrails')
 			.map(this.extractData)
 			.catch(this.handleError);
 	}
 
 	getTrail(id: number) {
-		this.TRAIL = { id: 1, name: 'Trail 1', description: 'asd asd asdasfasd', start: '1345123,123123', length: '16', rating: 1.7, difficulty: 4 };
-		return this.TRAIL;
+		return this.authHttp.get('http://forisapi.azurewebsites.net/api/trail/1')
+			.map(this.extractData)
+			.catch(this.handleError);
 	}
 
 	private extractData(res: Response) {

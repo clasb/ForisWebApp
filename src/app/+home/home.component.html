@@ -1,3 +1,28 @@
 <div *ngIf="showContent">
-	home content stuff
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+            <div class="news-feed">
+                <div *ngFor="let story of stories" class="news-story">
+                    <div class="title">
+                        {{story.title}}
+                        {{date}}
+                    </div>
+                    <div class="news-content">
+                        <div class="text">
+                            {{story.summary}}
+                        </div>
+                        <img *ngFor="let image of story.images" class="img" src="{{image.url}}" alt="{{image.text}}" />
+                        <div class="text">
+                            {{story.text}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="forum-feed">
+                Forum threads go here
+            </div>
+        </div>
+    </div>
 </div>

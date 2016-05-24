@@ -23,11 +23,17 @@
 
 .menu-item-1-right {
     position: absolute;
-    right: 100px;
+    right: 150px;
     top: 10px;
 }
 
 .menu-item-2-right {
+    position: absolute;
+    right: 100px;
+    top: 10px;
+}
+
+.menu-item-3-right {
     position: absolute;
     right: 50px;
     top: 10px;

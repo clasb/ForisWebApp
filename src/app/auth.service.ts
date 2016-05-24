@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { Router } from '@angular/router';
+import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import { contentHeaders } from './trail/headers';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
 
-	constructor(private router: Router, public http: Http) { }
+	apiUrl: string = 'https://claes.eu.auth0.com/';
+
+	constructor(private authHttp: AuthHttp, private router: Router, public http: Http) { }
 
 	login(username, password) {
 		var client_id = 'n7KZAN5t3dIwXuWlaViTLF9ZJ1esnRsI';
@@ -40,7 +44,19 @@ export class AuthService {
 		return tokenNotExpired();
 	}
 
-	profile() {
-		return JSON.parse(localStorage.getItem('profile'));
+	getProfile() {
+		var jwtHelper = new JwtHelper();
+		return jwtHelper.decodeToken(localStorage.getItem('id_token'));
+	}
+
+	private extractData(res: Response) {
+		let body = res.json();
+		return body.data || body || {};
+	}
+	private handleError(error: any) {
+		let errMsg = (error.message) ? error.message :
+			error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+		console.error(errMsg);
+		return Observable.throw(errMsg);
 	}
 }

@@ -1,5 +1,5 @@
 export class TrailComponent {
-	Id: number;
+	Id: string;
 	Name: string;
 	Description: string;
 	Length: number;

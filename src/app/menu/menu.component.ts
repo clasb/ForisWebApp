@@ -6,17 +6,20 @@ import { MdToolbar } from '@angular2-material/toolbar';
 import { MdSidenav, MdSidenavLayout } from '@angular2-material/sidenav';
 
 @Component({
-  moduleId: module.id,
-  selector: 'app-menu',
-  templateUrl: 'menu.component.html',
-  styleUrls: ['menu.component.css'],
-  directives: [MdButton, MdToolbar, MdSidenav, MdSidenavLayout]
+	moduleId: module.id,
+	selector: 'app-menu',
+	templateUrl: 'menu.component.html',
+	styleUrls: ['menu.component.css'],
+	directives: [MdButton, MdToolbar, MdSidenav, MdSidenavLayout]
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router: Router, private auth: AuthService) {}
+	email: string;
 
-  ngOnInit() {
-  }
+	constructor(private router: Router, private authService: AuthService) { }
+
+	ngOnInit() {
+		this.email = this.authService.getProfile().email;
+	}
 
 }

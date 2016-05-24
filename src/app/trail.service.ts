@@ -21,10 +21,9 @@ export class TrailService {
 	decodedJwt: string;
 	response: Response;
 	api: string;
+	apiUrl = 'http://localhost:20922/api/';
 
 	constructor(public authHttp: AuthHttp, public http: Http) {
-		this.jwt = localStorage.getItem('id_token');
-		console.log(this.jwt);
 	}
 	TRAIL: TrailComponent;
 
@@ -36,13 +35,15 @@ export class TrailService {
 			response => this.response = response,
 			error => console.log(error)
 			);*/
-		return this.authHttp.get('http://forisapi.azurewebsites.net/api/alltrails')
+		return this.authHttp.get('http://localhost:20922/api/alltrails')
 			.map(this.extractData)
 			.catch(this.handleError);
 	}
 
-	getTrail(id: number): Observable<TrailComponent> {
-		return this.authHttp.get('http://forisapi.azurewebsites.net/api/trail/1')
+	getTrail(id: string): Observable<TrailComponent> {
+		console.log(id);
+		let url = `${this.apiUrl}trail?id=${id}`;
+		return this.authHttp.get(url)
 			.map(this.extractData)
 			.catch(this.handleError);
 	}

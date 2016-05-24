@@ -20,17 +20,22 @@ export class TraildetailComponent implements OnInit, OnDestroy {
 		this.subscription = trailsLink.trailSelected$.subscribe(
 			trail => 
 			{ 
-				this.trail = trail; 
+				this.getTrail(trail.Id); //this.trail = trail;
 			})
 	}
 
 	ngOnInit() {
-		this.trailService.getTrail(1)
+		
+	}
+
+	getTrail(id: string) {
+		this.trailService.getTrail(id)
 			.subscribe(responseData => {
 				this.trail = responseData;
 			},
 			error => {
 				this.errorMessage = <any>error;
+				console.log('traildetail error');
 			}
 			);
 	}

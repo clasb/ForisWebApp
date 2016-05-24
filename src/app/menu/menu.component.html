@@ -3,56 +3,59 @@
         <button md-icon-button class="mobile-toggle" (click)="mobileMenu.toggle()"><i class="fa fa-navicon fa-fw fa-2x" aria-hidden="true"></i></button>
         <p class="menu-title mobile-toggle">Trails application
             <p>
-                <button md-icon-button class="desktop-toggle menu-item-2-right menu-icon" *ngIf="!auth.loggedIn()" (click)="router.navigate(['/login'])">
+                <button md-icon-button class="desktop-toggle menu-item-2-right menu-icon" *ngIf="!authService.loggedIn()" (click)="router.navigate(['/login'])">
                     <i class="fa fa-sign-in fa-fw fa-2x" aria-hidden="true"></i>
                 </button>
-                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="auth.loggedIn()" (click)="router.navigate(['/home'])">
+                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="authService.loggedIn()" (click)="router.navigate(['/home'])">
                     <i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>Home
                 </button>
-                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="auth.loggedIn()" (click)="router.navigate(['/trails'])">
+                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="authService.loggedIn()" (click)="router.navigate(['/trails'])">
                     <i class="fa fa-map fa-fw fa-lg" aria-hidden="true"></i>Trails
                 </button>
-                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="auth.loggedIn()" (click)="router.navigate(['/trails'])">
+                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="authService.loggedIn()" (click)="router.navigate(['/trails'])">
                     <i class="fa fa-graduation-cap fa-fw fa-lg" aria-hidden="true"></i>Courses
                 </button>
-                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="auth.loggedIn()" (click)="router.navigate(['/trails'])">
+                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="authService.loggedIn()" (click)="router.navigate(['/trails'])">
                     <i class="fa fa-users fa-fw fa-lg" aria-hidden="true"></i>Forums
                 </button>
-                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="auth.loggedIn()" (click)="router.navigate(['/trails'])">
+                <button md-raised-button class="desktop-toggle menu-btn" *ngIf="authService.loggedIn()" (click)="router.navigate(['/trails'])">
                     <i class="fa fa-cloud fa-fw fa-lg" aria-hidden="true"></i>Sources
                 </button>
-                <button md-icon-button class="desktop-toggle menu-item-2-right menu-icon" *ngIf="auth.loggedIn()" (click)="router.navigate(['/profile'])">
+                <span class="desktop-toggle menu-item-3-right menu-icon">
+                    {{email}}
+                </span>
+                <button md-icon-button class="desktop-toggle menu-item-2-right menu-icon" *ngIf="authService.loggedIn()" (click)="router.navigate(['/profile'])">
                     <i class="fa fa-user fa-fw fa-lg" aria-hidden="true"></i>
                 </button>
-                <button md-icon-button class="desktop-toggle menu-item-1-right menu-icon" *ngIf="auth.loggedIn()" (click)="auth.logout()">
+                <button md-icon-button class="desktop-toggle menu-item-3-right menu-icon" *ngIf="authService.loggedIn()" (click)="authService.logout()">
                     <i class="fa fa-sign-out fa-fw fa-2x" aria-hidden="true"></i>
                 </button>
     </md-toolbar>
     <md-sidenav-layout>
     <md-sidenav #mobileMenu>
         <div class="sidenav">
-            <div class="sidenav-menu-item mobile-toggle" *ngIf="!auth.loggedIn()">
-                <button md-icon-button (click)="auth.login();mobileMenu.close()">
+            <div class="sidenav-menu-item mobile-toggle" *ngIf="!authService.loggedIn()">
+                <button md-icon-button (click)="authService.login();mobileMenu.close()">
                     <i class="fa fa-sign-in fa-fw fa-2x" aria-hidden="true"></i>Log in
                 </button>
             </div>
-            <div class="sidenav-menu-item mobile-toggle" *ngIf="auth.loggedIn()">
+            <div class="sidenav-menu-item mobile-toggle" *ngIf="authService.loggedIn()">
                 <button md-icon-button (click)="router.navigate(['/home']);mobileMenu.close()">
                     <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>Home
                 </button>
             </div>
-            <div class="sidenav-menu-item mobile-toggle" *ngIf="auth.loggedIn()">
+            <div class="sidenav-menu-item mobile-toggle" *ngIf="authService.loggedIn()">
                 <button md-icon-button (click)="router.navigate(['/trails']);mobileMenu.close()">
                     <i class="fa fa-map fa-fw fa-2x" aria-hidden="true"></i>Trails
                 </button>
             </div>
-            <div class="sidenav-menu-item mobile-toggle" *ngIf="auth.loggedIn()">
+            <div class="sidenav-menu-item mobile-toggle" *ngIf="authService.loggedIn()">
                 <button md-icon-button (click)="router.navigate(['/profile']);mobileMenu.close()">
                     <i class="fa fa-user fa-fw fa-2x" aria-hidden="true"></i>Profile
                 </button>
             </div>
-            <div class="sidenav-menu-item mobile-toggle" *ngIf="auth.loggedIn()">
-                <button md-icon-button (click)="auth.logout();mobileMenu.close()">
+            <div class="sidenav-menu-item mobile-toggle" *ngIf="authService.loggedIn()">
+                <button md-icon-button (click)="authService.logout();mobileMenu.close()">
                     <i class="fa fa-sign-out fa-fw fa-2x" aria-hidden="true"></i>Log out
                 </button>
             </div>
